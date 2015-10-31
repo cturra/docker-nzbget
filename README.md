@@ -5,6 +5,12 @@ This container runs a NZBGet Usenet downloader. More about NZBGet can be found a
   http://nzbget.net/
 
 
+If you're running this container for the first time, the default login details are:
+
+ * user: nzbget
+ * pass: tegbzn6789
+
+
 Building the container
 ---
 Before building, there is one environment variable to ensure is correct
