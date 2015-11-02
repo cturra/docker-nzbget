@@ -5,8 +5,7 @@ MAINTAINER chris turra <cturra@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION         16.3
 
-# install/config supervisord and grab wget
-# so we can download plex
+# grab/install everything required to compile and launch nzbget.
 RUN apt-get -qq update && \
     apt-get -y install software-properties-common && \
     add-apt-repository "deb http://archive.ubuntu.com/ubuntu/ trusty-security multiverse" && \
@@ -21,7 +20,7 @@ RUN apt-get -qq update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY conf/supervisord.conf /etc/supervisor/conf.d/nzbget.conf
-COPY conf/prerun.sh  /root/nzbget-prerun.sh
+COPY conf/prerun.sh        /root/nzbget-prerun.sh
 
 WORKDIR /tmp
 
