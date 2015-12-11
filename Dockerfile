@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER chris turra <cturra@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV VERSION         16.3
+ENV VERSION         16.4
 
 # grab/install everything required to compile and launch nzbget.
 RUN apt-get -qq update && \
