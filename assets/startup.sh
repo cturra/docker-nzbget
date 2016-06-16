@@ -1,6 +1,4 @@
-#!/bin/sh
-
-set -e
+#!/bin/bash
 
 # check if config is present in /data directory. if not, lets
 # use the default config shipped with nzbget.
@@ -12,3 +10,8 @@ fi
 if [ -f /data/nzbget.lock ]; then
   rm -f /data/nzbget.lock
 fi
+
+# start nzbget
+/usr/local/bin/nzbget --configfile /data/nzbget.conf \
+                      --option=OutputMode=log        \
+                      --server
