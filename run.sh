@@ -12,12 +12,12 @@ function check_container() {
 
 # function to start new docker container
 function start_container() {
-  $DOCKER run --name=${CONTAINER_NAME}                       \
-              --restart=always                               \
-              --detach=true                                  \
-              --volume=${LOCAL_DATA_DIR}:/data               \
-              --volume=${LOCAL_DOWNLOAD_DIR}:/data/downloads \
-              --publish=6789:6789                            \
+  $DOCKER run --name=${CONTAINER_NAME}                        \
+              --restart=always                                \
+              --detach=true                                   \
+              --volume=${EXT_DATA_DIR}:/data                  \
+              --volume=${EXT_DOWNLOAD_DIR}:/data/downloads    \
+              --publish=${EXT_NZBGET_PORT}:${INT_NZBGET_PORT} \
                ${IMAGE_NAME}:latest > /dev/null
 }
 

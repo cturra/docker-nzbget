@@ -13,7 +13,7 @@ If you're running this container for the first time, the default login details a
 
 Building the container
 ---
-Before building, there are two localtions to verify variable to ensure is correct
+Before building, there are two locations to verify variable to ensure is correct
 for your setup.
 
 1) In the `Dockerfile`, check:
@@ -23,10 +23,12 @@ for your setup.
 2) In `vars` check:
 
 * `NZBGET_VERSION` - version of NZBGet that will be tagged
-* `LOCAL_DATA_DIR` - location on your hosts filesystem to mount the nzbget
+* `EXT_DATA_DIR` - location on your hosts filesystem to mount the nzbget
 application (data) directory.
-* `LOCAL_DOWNLOAD_DIR` - location on your hosts filesystem to mount the
+* `EXT_DOWNLOAD_DIR` - location on your hosts filesystem to mount the
 nzbget download directory (could be within the data directory).
+* `EXT_NZBGET_PORT` - tcp port to bind nzbget to on the docker host
+* `INT_NZBGET_PORT` - tcp port to bind nzbget to INSIDE the docker container
 
 With this configured correctly for your setup, the following Docker build
 command will create the container image manually. Or, below that, an example

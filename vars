@@ -8,5 +8,14 @@ CONTAINER_NAME="nzbget"
 
 NZBGET_VERSION="16.4"
 
-LOCAL_DATA_DIR="/data/nzbget"
-LOCAL_DOWNLOAD_DIR="/data/downloads/usenet"
+# nzbget application directory on docker host
+EXT_DATA_DIR="/data/nzbget"
+
+# nzbget download directory on docker host
+EXT_DOWNLOAD_DIR="/data/downloads/usenet"
+
+# nzbget port on docker host
+EXT_NZBGET_PORT=6789
+
+# nzbget port INSIDE docker container
+INT_NZBGET_PORT=6789
