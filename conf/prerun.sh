@@ -7,3 +7,8 @@ set -e
 if [ ! -f /data/nzbget.conf ]; then
   cp /usr/local/share/nzbget/nzbget.conf /data/nzbget.conf
 fi
+
+# remove .lock file if it's present
+if [ -f /data/nzbget.lock ]; then
+  rm -f /data/nzbget.lock
+fi
