@@ -3,7 +3,6 @@ FROM ubuntu:16.04
 MAINTAINER chris turra <cturra@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV TERM            vt100
 ENV VERSION         16.4
 
 # grab/install everything required to compile and launch nzbget.
