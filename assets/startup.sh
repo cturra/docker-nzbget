@@ -13,5 +13,5 @@ fi
 
 # start nzbget
 /usr/local/bin/nzbget --configfile /data/nzbget.conf \
-                      --option=OutputMode=log        \
+                      --option OutputMode=log        \
                       --server
