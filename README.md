@@ -7,8 +7,8 @@ This container runs a NZBGet Usenet downloader. More about NZBGet can be found a
 
 If you're running this container for the first time, the default login details are:
 
- * user: nzbget
- * pass: tegbzn6789
+ * user: `nzbget`
+ * pass: `tegbzn6789`
 
 
 Running from Docker Hub
@@ -20,11 +20,12 @@ Pull and run -- it's this simple.
 $> docker pull cturra/nzbget
 
 # run nzbget
-docker run --name=nzbget --restart=always --detach=true    \
-              --env=NZBGET_TRACK=stable                    \
-              --volume=/path/to/data/:/data                \
-              --volume=/path/to/downloads/:/data/downloads \
-              --publish=6789:6789 cturra/nzbget
+$> docker run --name=nzbget --restart=always --detach=true  \
+              --env=NZBGET_TRACK=stable                     \
+              --publish=6789:6789                           \
+              --volume=/path/to/data/:/data                 \
+              --volume=/path/to/downloads/:/data/downloads  \
+              cturra/nzbget
 ```
 
 Building and Running with Docker Compose
