@@ -6,13 +6,16 @@
 IMAGE_NAME="cturra/nzbget"
 CONTAINER_NAME="nzbget"
 
-NZBGET_VERSION="16.4"
+# NZBGet Track:
+# - stable
+# - testing
+NZBGET_TRACK="stable"
 
 # nzbget application directory on docker host
 EXT_DATA_DIR="/data/nzbget"
 
 # nzbget download directory on docker host
-EXT_DOWNLOAD_DIR="/data/downloads/usenet"
+EXT_DOWNLOAD_DIR="/data/downloads"
 
 # nzbget port on docker host
 EXT_NZBGET_PORT=6789
