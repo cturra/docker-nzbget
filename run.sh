@@ -15,6 +15,7 @@ function start_container() {
   $DOCKER run --name=${CONTAINER_NAME}                        \
               --restart=always                                \
               --detach=true                                   \
+              --env=NZBGET_TRACK=${NZBGET_TRACK}              \
               --volume=${EXT_DATA_DIR}:/data                  \
               --volume=${EXT_DOWNLOAD_DIR}:/data/downloads    \
               --publish=${EXT_NZBGET_PORT}:${INT_NZBGET_PORT} \

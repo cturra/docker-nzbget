@@ -7,54 +7,50 @@ This container runs a NZBGet Usenet downloader. More about NZBGet can be found a
 
 If you're running this container for the first time, the default login details are:
 
- * user: nzbget
- * pass: tegbzn6789
+ * user: `nzbget`
+ * pass: `tegbzn6789`
 
 
-Building the container
+Running from Docker Hub
 ---
-Before building, there are two locations to verify variable to ensure is correct
-for your setup.
-
-1) In the `Dockerfile`, check:
-
-* VERSION - version of NZBGet that will be fetched
-
-2) In `vars` check:
-
-* `NZBGET_VERSION` - version of NZBGet that will be tagged
-* `EXT_DATA_DIR` - location on your hosts filesystem to mount the nzbget
-application (data) directory.
-* `EXT_DOWNLOAD_DIR` - location on your hosts filesystem to mount the
-nzbget download directory (could be within the data directory).
-* `EXT_NZBGET_PORT` - tcp port to bind nzbget to on the docker host
-* `INT_NZBGET_PORT` - tcp port to bind nzbget to INSIDE the docker container
-
-With this configured correctly for your setup, the following Docker build
-command will create the container image manually. Or, below that, an example
-of how you can run the `build.sh` script.
+Pull and run -- it's this simple.
 
 ```
-$ docker build -t cturra/nzbget .
+# pull from docker hub
+$> docker pull cturra/nzbget
 
-```
-OR
-```
-$ ./build.sh
+# run nzbget
+$> docker run --name=nzbget --restart=always --detach=true  \
+              --env=NZBGET_TRACK=stable                     \
+              --publish=6789:6789                           \
+              --volume=/path/to/data/:/data                 \
+              --volume=/path/to/downloads/:/data/downloads  \
+              cturra/nzbget
 ```
 
-Running the container
+Building and Running with Docker Compose
 ---
-The following example Docker run command mounts one volume, used to persistently
-store the NZBGet data (configurations, etc). Or, you can use the `run.sh` script
-which will load the appropriate environment details from the `vars` file and launch
-your nzbget container.
+Using the docker-compose.yml file included in this git repo, you can build the container yourself (should you choose to).
 
 ```
-$ docker run --name=nzbget -v /data/nzbget:/data:rw -p 6789:6789 -d cturra/nzbget
+# build nzbget
+$> docker-compose build nzbget
+
+# run nzbget
+$> docker-compose up -d nzbget
+
+# (optional) check the logs
+$> docker-compose logs nzbget
 ```
 
-OR
+Building and Running with Docker Engine
+---
+Using the vars file in this git repo, you can update any of the variables to reflect your environment. Once updated, simply execute the build then run scripts.
+
 ```
-$ ./run.sh
+# build nzbget
+$> ./build.sh
+
+# run nzbget
+$> ./run.sh
 ```
