@@ -5,7 +5,7 @@ services:
     build: .
     image: cturra/nzbget:latest
     container_name: nzbget
-    restart: always
+    restart: on-failure:2
     environment:
       - NZBGET_TRACK=stable
     ports:

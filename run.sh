@@ -13,7 +13,7 @@ function check_container() {
 # function to start new docker container
 function start_container() {
   $DOCKER run --name=${CONTAINER_NAME}                        \
-              --restart=always                                \
+              --restart=on-failure:2                          \
               --detach=true                                   \
               --env=NZBGET_TRACK=${NZBGET_TRACK}              \
               --volume=${EXT_DATA_DIR}:/data                  \
