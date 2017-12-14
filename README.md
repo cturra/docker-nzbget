@@ -1,5 +1,9 @@
 About this container
 ---
+[![Docker Build Status](https://img.shields.io/docker/build/cturra/nzbget.svg)](https://hub.docker.com/r/cturra/nzbget/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/cturra/nzbget.svg)](https://hub.docker.com/r/cturra/nzbget/)
+[![Apache licensed](https://img.shields.io/badge/license-Apache-blue.svg)](https://raw.githubusercontent.com/cturra/docker-nzbget/badges/LICENSE)
+
 This container runs a NZBGet Usenet downloader on [Alpine Linux](https://alpinelinux.org/). More about NZBGet can be found at:
 
   http://nzbget.net/
