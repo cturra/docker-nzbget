@@ -1,8 +1,10 @@
 FROM alpine:latest
 
 # grab/install everything required for nzbget.
-RUN apk update   \
- && apk add wget \
+RUN apk update    \
+ && apk add p7zip \
+            unrar \
+            wget  \
  && rm -rf /var/cache/apk/*
 
 # copy startup script
