@@ -1,6 +1,6 @@
 About this container
 ---
-This container runs a NZBGet Usenet downloader. More about NZBGet can be found at:
+This container runs a NZBGet Usenet downloader on [Alpine Linux](https://alpinelinux.org/). More about NZBGet can be found at:
 
   http://nzbget.net/
 
@@ -20,7 +20,9 @@ Pull and run -- it's this simple.
 $> docker pull cturra/nzbget
 
 # run nzbget
-$> docker run --name=nzbget --restart=always --detach=true  \
+$> docker run --name=nzbget                                 \
+              --restart=always                              \
+              --detach=true                                 \
               --env=NZBGET_TRACK=stable                     \
               --publish=6789:6789                           \
               --volume=/path/to/data/:/data                 \
