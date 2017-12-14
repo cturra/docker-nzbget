@@ -21,7 +21,7 @@ $> docker pull cturra/nzbget
 
 # run nzbget
 $> docker run --name=nzbget                                 \
-              --restart=always                              \
+              --restart=on-failure:2                        \
               --detach=true                                 \
               --env=NZBGET_TRACK=stable                     \
               --publish=6789:6789                           \
